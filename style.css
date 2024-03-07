@@ -7,23 +7,23 @@
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 500;
   background-color: #041c32;
   color: #eee;
   padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
-  /* gap: 125px;   */
+  /* justify-content: space-evenly; */
   min-height: 100vh;
 }
 
 .main-header {
   display: flex;
   align-items: center;
+  margin: 50px 0;
 }
 .main-header img {
-  background-color: #ecb365;
   margin-right: 25px;
   height: 50px;
   width: 50px;
@@ -42,6 +42,7 @@ body {
   width: 1000px;
   max-width: 100%;
   margin: 0 auto;
+  user-select: none;
 }
 
 .container-header {
@@ -60,26 +61,48 @@ body {
 }
 
 .container-header .reaction-history {
-  flex: 5;
+  flex: 1;
+  align-items: center;
+
+  white-space: nowrap;
+  overflow: hidden;
 }
 .container-header .reaction-history ul {
   display: flex;
   gap: 5px;
 }
 .container-header .reaction-history ul li {
+  overflow: hidden;
   display: flex;
   list-style: none;
   background-color: hsla(0, 0%, 100%, 0.1);
   padding: 5px;
   border-radius: 3px;
+  animation: expand 1.25s ease-in-out;
 }
 
-.container-header .reaction-average {
-  flex: 1;
+span.ms {
+  opacity: 0.5;
 }
 
+.container-header .reaction-average,
 .container-header .reaction-best {
-  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.container-header .reaction-average p,
+.container-header .reaction-best p {
+  /* background-color: red; */
+  /* width: 100%; */
+}
+
+.container-header .reaction-average img,
+.container-header .reaction-best img,
+.container-header .reaction-history img {
+  /* background-color: red; */
+  max-height: 20px;
+  margin-right: 10px;
 }
 
 .container-content {
@@ -97,11 +120,33 @@ body {
 }
 
 .blue {
-  background-color: lightblue;
+  /* background-color: lightblue; */
 }
 .red {
   background-color: red;
 }
 .yellow {
-  background-color: yellow;
+  background-color: #ecb365;
+}
+
+[hidden] {
+  opacity: 0;
+  animation: none !important;
+}
+
+@keyframes expand {
+  from {
+    background-color: #ecb365;
+    box-shadow: inset 0 0 2px 2px yellow;
+    max-width: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    /* opacity: 0.5; */
+  }
+  to {
+    max-width: 300px;
+    padding-left: 5px;
+    padding-right: 5px;
+    /* opacity: 1; */
+  }
 }
