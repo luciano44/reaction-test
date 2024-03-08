@@ -4,17 +4,23 @@
   box-sizing: border-box;
 }
 
+:root {
+  --main-color: #041c32;
+  --second-color: #ecb365;
+  --third-color: #064663;
+  /* --fourth-color: #04293a; */
+}
+
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-weight: 500;
-  background-color: #041c32;
+  background-color: var(--main-color);
   color: #eee;
   padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: space-evenly; */
   min-height: 100vh;
 }
 
@@ -30,14 +36,14 @@ body {
   border-radius: 10px;
 }
 .main-header h1 {
-  color: #ecb365;
+  color: var(--second-color);
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  background-color: hsla(0, 0%, 100%, 0.1);
+  gap: 5px;
+  /* background-color: hsla(0, 0%, 100%, 0.1); */
   padding: 10px;
   width: 1000px;
   max-width: 100%;
@@ -46,15 +52,13 @@ body {
 }
 
 .container-header {
-  background-color: hsla(0, 0%, 100%, 0.1);
-  padding: 5px;
   display: flex;
   gap: 5px;
   border-radius: 6px;
 }
 
 .container-header > div {
-  background-color: hsla(0, 0%, 100%, 0.1);
+  background-color: var(--third-color);
   padding: 4px 8px;
   border-radius: 3px;
   display: flex;
@@ -66,16 +70,29 @@ body {
 
   white-space: nowrap;
   overflow: hidden;
+  position: relative;
+}
+.container-header .reaction-history::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 50px;
+  background: linear-gradient(90deg, transparent, var(--third-color));
+  border-right: 10px solid var(--third-color);
+  right: 0;
+  top: 0;
 }
 .container-header .reaction-history ul {
   display: flex;
   gap: 5px;
 }
+
 .container-header .reaction-history ul li {
   overflow: hidden;
   display: flex;
   list-style: none;
   background-color: hsla(0, 0%, 100%, 0.1);
+
   padding: 5px;
   border-radius: 3px;
   animation: expand 1.25s ease-in-out;
@@ -83,6 +100,7 @@ body {
 
 span.ms {
   opacity: 0.5;
+  font-weight: lighter;
 }
 
 .container-header .reaction-average,
@@ -102,15 +120,16 @@ span.ms {
 .container-header .reaction-history img {
   /* background-color: red; */
   max-height: 20px;
-  margin-right: 10px;
+  margin-right: 8px;
 }
 
 .container-content {
-  background-color: hsla(0, 0%, 100%, 0.1);
+  background-color: var(--third-color);
   padding: 10px;
   height: 500px;
   display: grid;
   place-content: center;
+  border-radius: 3px;
 }
 
 .container-content .main-paragraph {
@@ -127,6 +146,9 @@ span.ms {
 }
 .yellow {
   background-color: #ecb365;
+}
+.yellow p {
+  color: #111;
 }
 
 [hidden] {

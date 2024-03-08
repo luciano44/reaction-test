@@ -90,12 +90,14 @@ function appendReactionTimeToHistory(timeInMs) {
 
   p.textContent = timeInMs
   span.textContent = "ms"
+  span.classList.add("ms")
   li.append(p)
   li.append(span)
 
   reactionHistoryList.insertAdjacentElement("afterbegin", li)
 }
 
-document.querySelector("header").addEventListener("click", () => {
-  appendReactionTimeToHistory(300)
-})
+// Adds Header click event to generate example reaction history time
+// document.querySelector("header").addEventListener("click", () => {
+//   appendReactionTimeToHistory(300)
+// })
