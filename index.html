@@ -3,8 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Reaction Time Test</title>
+    <title>Reaction Test</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="shortcut icon"
+      href="./assets/imgs/logo.svg"
+      type="image/x-icon"
+    />
   </head>
   <body>
     <header class="main-header">
@@ -14,7 +19,11 @@
     <div class="container">
       <div class="container-header">
         <div class="reaction-history">
-          <img src="./assets/icons/history.svg" alt="Reaction time history" />
+          <img
+            src="./assets/icons/history.svg"
+            alt="Reaction time history"
+            title="Reaction time history"
+          />
           <ul>
             <li hidden>
               <p>245</p>
@@ -23,18 +32,27 @@
           </ul>
         </div>
         <div class="reaction-average">
-          <img src="./assets/icons/average.svg" alt="Average reaction time" />
+          <img
+            src="./assets/icons/average.svg"
+            alt="Average reaction time"
+            title="Average reaction time"
+          />
           <p>?&nbsp;</p>
           <span class="ms">ms</span>
         </div>
         <div class="reaction-best">
-          <img src="./assets/icons/star.svg" alt="Best reaction time" />
+          <img
+            src="./assets/icons/star.svg"
+            alt="Best reaction time"
+            title="Best reaction time"
+          />
           <p>?&nbsp;</p>
           <span class="ms">ms</span>
         </div>
       </div>
       <div class="container-content">
         <p class="main-paragraph">Click to Start</p>
+        <p class="main-paragraph click" hidden>Click</p>
       </div>
     </div>
 

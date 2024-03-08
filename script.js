@@ -8,6 +8,7 @@ const reactionBestParagraph = document.querySelector(".reaction-best p")
 const reactionAverageParagraph = document.querySelector(".reaction-average p")
 const mainParagraph = document.querySelector(".main-paragraph")
 const container = document.querySelector(".container-content")
+const clickAnimatedButton = document.querySelector(".main-paragraph.click")
 
 container.addEventListener("click", turnBlue)
 
@@ -35,6 +36,9 @@ function turnYellow() {
 
   turnYellowTime = Date.now()
   container.addEventListener("click", getReactionTime)
+
+  clickAnimatedButton.removeAttribute("hidden")
+  mainParagraph.setAttribute("hidden", "")
 }
 
 // "too quickly!" state, start again
@@ -80,6 +84,9 @@ function getReactionTime() {
 
   mainParagraph.textContent = `Your reaction time was: ${result}ms, click to play again`
   container.addEventListener("click", turnBlue)
+
+  clickAnimatedButton.setAttribute("hidden", "")
+  mainParagraph.removeAttribute("hidden")
 }
 
 function appendReactionTimeToHistory(timeInMs) {

@@ -55,6 +55,7 @@ body {
   display: flex;
   gap: 5px;
   border-radius: 6px;
+  position: relative;
 }
 
 .container-header > div {
@@ -130,12 +131,14 @@ span.ms {
   display: grid;
   place-content: center;
   border-radius: 3px;
+  position: relative;
 }
 
 .container-content .main-paragraph {
   font-weight: bold;
   font-size: 1.1rem;
   opacity: 0.75;
+  text-align: center;
 }
 
 .blue {
@@ -145,15 +148,47 @@ span.ms {
   background-color: red;
 }
 .yellow {
-  background-color: #ecb365;
+  background-color: var(--second-color);
+  animation: yellowScreenAnim 0.5s infinite alternate;
 }
 .yellow p {
   color: #111;
+}
+.click {
+  background-color: white;
+  padding: 10px 35px;
+  color: #111;
+  border-radius: 5px;
+  transition: 0.25s;
+  position: relative;
+  animation: buttonClick 0.12s linear infinite alternate;
+  box-shadow: inset 0 0 0 5px black;
 }
 
 [hidden] {
   opacity: 0;
   animation: none !important;
+}
+
+@keyframes buttonClick {
+  from {
+    border-bottom: 10px solid black;
+    top: 5px;
+  }
+  to {
+    /* box-shadow: 0 10px 0 0px black; */
+    border-bottom: 0px solid black;
+    top: 10px;
+  }
+}
+
+@keyframes yellowScreenAnim {
+  from {
+    background-color: rgb(255, 154, 71);
+  }
+  to {
+    background-color: var(--second-color);
+  }
 }
 
 @keyframes expand {
