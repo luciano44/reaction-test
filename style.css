@@ -27,7 +27,7 @@ body {
 .main-header {
   display: flex;
   align-items: center;
-  margin: 50px 0;
+  margin: 50px 0 25px;
 }
 .main-header img {
   margin-right: 25px;
@@ -37,6 +37,13 @@ body {
 }
 .main-header h1 {
   color: var(--second-color);
+}
+
+h2.subtitle {
+  font-size: 1rem;
+  color: hsla(0, 0%, 100%, 0.5);
+  margin-bottom: 25px;
+  font-weight: initial;
 }
 
 .container {

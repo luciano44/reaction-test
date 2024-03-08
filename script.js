@@ -90,11 +90,42 @@ function getReactionTime() {
   // Append best reaction time if new result is lesser than current best one
   if (parseInt(reactionBestParagraph.textContent) > result) {
     reactionBestParagraph.textContent = result
+
+    Toastify({
+      text: "🥳 You've beaten your previous record",
+      duration: 3000,
+      // destination: "https://github.com/apvarun/toastify-js",
+      newWindow: true,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "center", // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        background:
+          "linear-gradient(to right, rgb(0, 176, 155), rgb(25 191 70))",
+      },
+      // onClick: function () {}, // Callback after click
+    }).showToast()
   }
 
   // Append worst reaction time if new result is greater than current worst one
   if (parseInt(reactionWorstParagraph.textContent) < result) {
     reactionWorstParagraph.textContent = result
+
+    Toastify({
+      text: "☹️ This is your worst record",
+      duration: 3000,
+      // destination: "https://github.com/apvarun/toastify-js",
+      newWindow: true,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "center", // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        background: "linear-gradient(to right, rgb(176 0 0), rgb(201 61 61))",
+      },
+      // onClick: function () {}, // Callback after click
+    }).showToast()
   }
 
   showReactionTimeText(result)
