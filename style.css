@@ -104,23 +104,18 @@ span.ms {
   font-weight: lighter;
 }
 
-.container-header .reaction-average,
-.container-header .reaction-best {
+.container-header > div {
   display: flex;
   align-items: center;
 }
 
-.container-header .reaction-average p,
-.container-header .reaction-best p {
+.container-header p {
   /* background-color: red; */
   /* width: 100%; */
 }
 
-.container-header .reaction-average img,
-.container-header .reaction-best img,
-.container-header .reaction-history img {
-  /* background-color: red; */
-  max-height: 20px;
+.container-header img {
+  height: 20px;
   margin-right: 8px;
 }
 

@@ -6,6 +6,7 @@ const reactionHistoryArray = []
 
 const reactionBestParagraph = document.querySelector(".reaction-best p")
 const reactionAverageParagraph = document.querySelector(".reaction-average p")
+const reactionWorstParagraph = document.querySelector(".reaction-worst p")
 const mainParagraph = document.querySelector(".main-paragraph")
 const container = document.querySelector(".container-content")
 const clickAnimatedButton = document.querySelector(".main-paragraph.click")
@@ -47,7 +48,7 @@ function turnRed() {
   container.removeEventListener("click", turnRed)
   clearTimeout(timeout)
   container.classList.add("red")
-  mainParagraph.textContent = "Too Soon, Click again to restart"
+  mainParagraph.textContent = "Too Soon, Click to Restart"
 
   container.addEventListener("click", turnBlue)
 }
@@ -74,15 +75,23 @@ function getReactionTime() {
 
   reactionAverageParagraph.textContent = averageResult.toFixed()
 
-  // Append best reaction time
-  if (reactionBestParagraph.textContent.includes("?"))
+  // Append best and worst reaction time (for the very first time)
+  if (reactionBestParagraph.textContent.includes("?")) {
     reactionBestParagraph.textContent = result
+    reactionWorstParagraph.textContent = result
+  }
 
+  // Append best reaction time if new result is lesser than current best one
   if (parseInt(reactionBestParagraph.textContent) > result) {
     reactionBestParagraph.textContent = result
   }
 
-  mainParagraph.textContent = `Your reaction time was: ${result}ms, click to play again`
+  // Append worst reaction time if new result is greater than current worst one
+  if (parseInt(reactionWorstParagraph.textContent) < result) {
+    reactionWorstParagraph.textContent = result
+  }
+
+  mainParagraph.textContent = `Your reaction time was: ${result}ms, Click to Restart`
   container.addEventListener("click", turnBlue)
 
   clickAnimatedButton.setAttribute("hidden", "")
