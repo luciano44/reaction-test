@@ -2,7 +2,7 @@ let turnYellowTime // time in miliseconds when screen turned yellow
 let reactionTime // time in miliseconds when user clicked on yellow screen
 let timeout // timeout reference which is used to cancel timeout if user clicks before yellow screen shows up
 let averageReactionTime
-const reactionHistoryArray = []
+let reactionHistoryArray = []
 
 const reactionBestParagraph = document.querySelector(".reaction-best p")
 const reactionAverageParagraph = document.querySelector(".reaction-average p")
@@ -10,8 +10,14 @@ const reactionWorstParagraph = document.querySelector(".reaction-worst p")
 const mainParagraph = document.querySelector(".main-paragraph")
 const container = document.querySelector(".container-content")
 const clickAnimatedButton = document.querySelector(".main-paragraph.click")
+const resetBtn = document.querySelector(".reset-btn")
+const reactionHistoryList = document.querySelector(".reaction-history ul")
 
 container.addEventListener("click", turnBlue)
+resetBtn.addEventListener("click", () => {
+  const confirmDeletion = confirm("Are you sure you wish to delete the score?")
+  reset(confirmDeletion)
+})
 
 // "ready" state, wait for yellow
 function turnBlue() {
@@ -23,7 +29,7 @@ function turnBlue() {
   mainParagraph.textContent = "Wait for Yellow"
 
   // generate a random number to be passed to timeout so user doesn't know when to expect yellow screen
-  const randomNumber = Math.floor(Math.random() * 3_000) + 1000
+  const randomNumber = Math.floor(Math.random() * 4_000) + 1500
 
   timeout = setTimeout(turnYellow, randomNumber)
 }
@@ -103,7 +109,6 @@ function appendReactionTimeToHistory(timeInMs) {
   const li = document.createElement("li")
   const p = document.createElement("p")
   const span = document.createElement("span")
-  const reactionHistoryList = document.querySelector(".reaction-history ul")
 
   p.textContent = timeInMs
   span.textContent = "ms"
@@ -121,6 +126,20 @@ function showReactionTimeText(result) {
   span.textContent = `${result}ms`
   mainParagraph.append(span)
   mainParagraph.append(" Click to Restart")
+}
+
+function reset(confirm) {
+  const reactionTimeListItems = document.querySelectorAll(
+    ".reaction-history ul li"
+  )
+
+  if (!confirm) return
+  reactionWorstParagraph.textContent = "?"
+  reactionBestParagraph.textContent = "?"
+  reactionAverageParagraph.textContent = "?"
+  reactionHistoryArray = []
+
+  reactionTimeListItems.forEach((item) => item.remove())
 }
 
 // Adds Header click event to generate example reaction history time

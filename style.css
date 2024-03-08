@@ -171,6 +171,24 @@ span.ms:not(.reaction-history span) {
   padding: 5px 10px;
   border-radius: 3px;
 }
+.reset-btn {
+  width: fit-content;
+  margin-left: auto;
+  padding: 5px 20px;
+  background-color: var(--second-color);
+  border-radius: 3px;
+  border: none;
+  font-weight: bold;
+  color: hsl(35, 78%, 15%);
+  cursor: pointer;
+}
+
+.reset-btn:hover {
+  opacity: 0.75;
+}
+.reset-btn:active {
+  opacity: 1;
+}
 
 [hidden] {
   opacity: 0;
