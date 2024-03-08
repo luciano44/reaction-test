@@ -91,7 +91,8 @@ function getReactionTime() {
     reactionWorstParagraph.textContent = result
   }
 
-  mainParagraph.textContent = `Your reaction time was: ${result}ms, Click to Restart`
+  showReactionTimeText(result)
+
   container.addEventListener("click", turnBlue)
 
   clickAnimatedButton.setAttribute("hidden", "")
@@ -111,6 +112,15 @@ function appendReactionTimeToHistory(timeInMs) {
   li.append(span)
 
   reactionHistoryList.insertAdjacentElement("afterbegin", li)
+}
+
+function showReactionTimeText(result) {
+  mainParagraph.textContent = `Your reaction time was: `
+  const span = document.createElement("span")
+  span.classList.add("highlight")
+  span.textContent = `${result}ms`
+  mainParagraph.append(span)
+  mainParagraph.append(" Click to Restart")
 }
 
 // Adds Header click event to generate example reaction history time
