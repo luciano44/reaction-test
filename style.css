@@ -17,11 +17,14 @@ body {
   font-weight: 500;
   background-color: var(--main-color);
   color: #eee;
-  padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+}
+
+body > *:not(footer) {
+  padding: 10px;
 }
 
 .main-header {
@@ -51,7 +54,6 @@ h2.subtitle {
   flex-direction: column;
   gap: 5px;
   /* background-color: hsla(0, 0%, 100%, 0.1); */
-  padding: 10px;
   width: 1000px;
   max-width: 100%;
   margin: 0 auto;
@@ -195,6 +197,55 @@ span.ms:not(.reaction-history span) {
 }
 .reset-btn:active {
   opacity: 1;
+}
+
+.text {
+  width: 750px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+.text h2 {
+  margin: 25px 0;
+  color: var(--second-color);
+  text-align: center;
+}
+.text p {
+  margin: 25px 0;
+  font-weight: initial;
+  text-align: center;
+  color: hsla(0, 0%, 100%, 0.5);
+}
+
+footer {
+  height: 150px;
+  width: 100%;
+  margin-top: 50px;
+  background-color: var(--fourth-color);
+  display: grid;
+  justify-items: center;
+  align-content: space-evenly;
+  padding: 25px 0;
+}
+footer > img {
+  height: 25px;
+  opacity: 0.5;
+}
+footer > p {
+  /* margin: 10px; */
+  font-weight: initial;
+  color: hsla(0, 0%, 100%, 0.5);
+}
+footer ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  font-weight: initial;
+}
+footer ul li .social-media-icon {
+  height: 16px;
+}
+footer ul li .social-media-icon:hover {
+  opacity: 0.5;
 }
 
 [hidden] {

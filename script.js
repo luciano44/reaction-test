@@ -101,8 +101,7 @@ function getReactionTime() {
       position: "center", // `left`, `center` or `right`
       stopOnFocus: true, // Prevents dismissing of toast on hover
       style: {
-        background:
-          "linear-gradient(to right, rgb(0, 176, 155), rgb(25 191 70))",
+        background: "rgb(25 191 70)",
       },
       // onClick: function () {}, // Callback after click
     }).showToast()
@@ -122,7 +121,7 @@ function getReactionTime() {
       position: "center", // `left`, `center` or `right`
       stopOnFocus: true, // Prevents dismissing of toast on hover
       style: {
-        background: "linear-gradient(to right, rgb(176 0 0), rgb(201 61 61))",
+        background: "rgb(176 0 0)",
       },
       // onClick: function () {}, // Callback after click
     }).showToast()
